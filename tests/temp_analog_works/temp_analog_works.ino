@@ -3,8 +3,8 @@
 #include <dht.h>
 #include <Wire.h>
 #include <Digital_Light_TSL2561.h>
-#define DHT11_PIN 7 // Pin sensor is connected to
-#define DHT22_PIN 1
+
+#define DHT22_PIN 8
 dht DHT;
 LiquidCrystal_I2C lcd(0x27, 16, 2); //LCD I2C setup
 
@@ -27,22 +27,6 @@ void loop()
 Serial.print("********************************");
 Serial.print("%\n");
 
-//DHT11 BLUE TEMP SENSOR LOOP
-int chk11 = DHT.read11(DHT11_PIN);
-Serial.print("DHT11 Temperature = ");
-Serial.println(DHT.temperature);
-Serial.print("DHT11  Humidity = ");
-Serial.print(DHT.humidity);
-Serial.print("%\n");
-Serial.println();
-lcd.setCursor(0,0);
-lcd.print("LadyGraph  DHT11");
-lcd.setCursor(0,1);
-lcd.print(DHT.humidity);
-lcd.print("%    ");
-lcd.print(DHT.temperature);
-lcd.print("C");
-delay(5000);
 
 //DHT22 WHITE TEMP SENSOR LOOP
 int chk22 = DHT.read22(DHT22_PIN);
